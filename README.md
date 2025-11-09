@@ -13,3 +13,6 @@ Introduction to parallel distributed memory programming using the Message Passin
 Interface (MPI) library.  
 
 During the semester, I had to submit two assignments for a total of 30% of the final grade.
+
+# Assignment 1
+Load-balanced vector calculations with non-collective MPI functions
