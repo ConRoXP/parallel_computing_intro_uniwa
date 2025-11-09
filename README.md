@@ -12,4 +12,4 @@ Distributed Memory Computing Environment.
 Introduction to parallel distributed memory programming using the Message Passing
 Interface (MPI) library.  
 
-During the semester, I had two submit to assignments for a total of 30% of the final grade.
+During the semester, I had to submit two assignments for a total of 30% of the final grade.
