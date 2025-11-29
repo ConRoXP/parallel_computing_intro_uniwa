@@ -13,6 +13,7 @@ int main(int argc, char** argv){
     int input, n, local_n;
     double *X, *local_X, *local_D;
     double avg, global_max, local_max, local_sum, local_var_sum, diff;
+    int safe_free= 0;
 
     while(1){
 
@@ -167,6 +168,7 @@ int main(int argc, char** argv){
         //Sending δi to r0
         if(proc_rank> 0){
             MPI_Send(local_D, local_n, MPI_DOUBLE, 0, 7, MPI_COMM_WORLD);
+            free(local_D);
         }
         else{ //r0 receiving, calculating and printing
             double *D= (double*)malloc(n*sizeof(double));
@@ -178,6 +180,7 @@ int main(int argc, char** argv){
             for(int i= 0; i< local_n; i++){
                 D[i]= local_D[i];
             }
+            free(local_D);
 
             for(int r= 1; r< total_ranks; r++){
                 if(mod> 0 && r> mod-1 && flag== 1){
@@ -197,8 +200,10 @@ int main(int argc, char** argv){
         }
     }
 
-    free(local_X);
-    if(proc_rank== 0) free(X);
+    if(safe_free== 1){
+        free(local_X);
+        if(proc_rank== 0) free(X);
+    }
     MPI_Finalize();
     return 0;
 }
