@@ -16,3 +16,6 @@ During the semester, I had to submit two assignments for a total of 30% of the f
 
 # Assignment 1
 Load-balanced vector calculations with non-collective MPI functions
+
+# Assignment 2
+Array multiplications with collective MPI functions and ring topology
