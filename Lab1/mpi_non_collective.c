@@ -13,7 +13,7 @@ int main(int argc, char** argv){
     int input, n, local_n;
     double *X, *local_X, *local_D;
     double avg, global_max, local_max, local_sum, local_var_sum, diff;
-    int safe_free= 0;
+    _Bool safe_free= 0;
 
     while(1){
 
