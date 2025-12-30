@@ -116,7 +116,7 @@ int main(int argc, char** argv){
         MPI_Scatter(C, local_elements, MPI_DOUBLE, local_C, local_elements, MPI_DOUBLE, 0, MPI_COMM_WORLD);
         MPI_Scatter(D, local_elements, MPI_DOUBLE, local_D, local_elements, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
-        //Q.1 - Calculating sum
+        //Q.1 - Calculating sum and gathering results to r0
         for(int k= 0; k< local_elements; k++){
             local_R1[k]= local_C[k]+ local_D[k];
         }
